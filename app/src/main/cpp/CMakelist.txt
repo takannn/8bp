@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.22.1)
+project("predictor" LANGUAGES CXX)
+
+add_library(predictor SHARED
+    native-lib.cpp
+    predictor.cpp
+)
+
+target_include_directories(predictor PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+find_library(log-lib log)
+target_link_libraries(predictor ${log-lib})
